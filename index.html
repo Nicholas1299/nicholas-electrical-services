@@ -3,68 +3,65 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nicholas Electrical Services | 24/7 Emergency Electrician</title>
-  <meta name="description" content="Clean, fast electrician service for power trips, lighting, ceiling fans, water heaters, sockets, switches, door bells, and DB box issues. Send a photo and problem description by WhatsApp.">
-  <meta name="keywords" content="emergency electrician Singapore, electrician WhatsApp, power trip electrician, DB box electrician, water heater electrician, socket repair, ceiling fan installation">
+  <title>Nicholas Electrical Services | Singapore Electrical Services</title>
+  <meta name="description" content="Nicholas Electrical Services provides 24/7 electrical repair, lighting, power trip, switch, socket and emergency electrical services in Singapore. WhatsApp us for direct enquiry.">
+  <meta name="keywords" content="Singapore electrician, electrical repair Singapore, emergency electrical service, power trip electrician, switch socket repair, lighting electrician Singapore">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Nicholas Electrical Services">
-  <meta property="og:description" content="Describe your electrical problem, upload a photo, and WhatsApp Nicholas Electrical Services.">
+  <meta property="og:title" content="Nicholas Electrical Services | Singapore Electrical Services">
+  <meta property="og:description" content="Fast help for electrical repair, lighting, power trips, switches, sockets and emergency electrical service.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/emergency-electrician-hero.png">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#0B1220">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/emergency-electrician-hero.png">
   <style>
     :root {
-      --navy: #0f172a;
-      --navy-soft: #1e293b;
-      --muted: #64748b;
-      --line: #e2e8f0;
-      --surface: #f8fafc;
-      --white: #ffffff;
-      --green: #25d366;
-      --green-dark: #075e54;
+      --navy: #0B1220;
+      --navy-2: #111827;
+      --blue: #2563EB;
+      --orange: #F97316;
+      --green: #25D366;
+      --green-dark: #075E54;
+      --white: #FFFFFF;
+      --surface: #F8FAFC;
+      --line: #E2E8F0;
+      --muted: #64748B;
+      --text: #0F172A;
+      --shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+      --shadow-strong: 0 20px 60px rgba(15, 23, 42, 0.16);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: "Inter", Arial, sans-serif;
-      color: var(--navy);
+      color: var(--text);
       background: var(--white);
       letter-spacing: 0;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    body.menu-open { overflow: hidden; }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    img { display: block; max-width: 100%; }
 
     .container {
-      width: min(1120px, calc(100% - 32px));
+      width: min(1160px, calc(100% - 32px));
       margin-inline: auto;
     }
 
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 40;
-      background: rgba(255, 255, 255, 0.9);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      z-index: 50;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(16px);
     }
 
@@ -73,7 +70,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
     }
 
     .brand {
@@ -82,11 +79,12 @@
       gap: 12px;
       font-weight: 900;
       line-height: 1.05;
+      color: var(--navy);
     }
 
     .brand-mark {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       display: grid;
       place-items: center;
       border-radius: 12px;
@@ -96,346 +94,471 @@
     }
 
     .nav-links {
+      position: fixed;
+      inset: 72px 16px auto 16px;
       display: none;
-      align-items: center;
-      gap: 26px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
+      flex-direction: column;
+      gap: 4px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: var(--shadow);
     }
 
-    .nav-links a:hover {
+    .nav-links.open { display: flex; }
+
+    .nav-links a {
+      padding: 13px 14px;
+      border-radius: 14px;
+      color: var(--navy-2);
+      font-weight: 800;
+    }
+
+    .nav-links a:hover { background: var(--surface); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .menu-toggle {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
       color: var(--navy);
+      cursor: pointer;
     }
 
     .btn {
-      min-height: 48px;
+      min-height: 52px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      border-radius: 999px;
       border: 1px solid transparent;
-      padding: 13px 20px;
-      font-weight: 800;
+      border-radius: 999px;
+      padding: 14px 22px;
+      font-weight: 900;
       cursor: pointer;
-      transition: background-color 160ms ease, border-color 160ms ease;
+      transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
     }
 
-    .btn-primary {
+    .btn:hover, .btn:focus-visible { transform: translateY(-1px); }
+    .btn:focus-visible { outline: 3px solid rgba(37, 99, 235, 0.22); outline-offset: 2px; }
+
+    .btn-whatsapp {
       background: var(--green);
       color: #052e16;
     }
 
-    .btn-primary:hover,
-    .btn-primary:focus-visible {
-      background: #20bd5b;
+    .btn-whatsapp:hover { background: #20bd5b; }
+
+    .btn-navy {
+      background: var(--navy);
+      color: var(--white);
     }
 
-    .btn-secondary {
-      color: var(--navy);
+    .btn-navy:hover { background: #172033; }
+
+    .btn-outline {
       background: var(--white);
+      color: var(--navy);
       border-color: var(--line);
     }
 
-    .btn-secondary:hover,
-    .btn-secondary:focus-visible {
-      background: var(--surface);
-      border-color: #cbd5e1;
+    .btn-outline:hover { background: var(--surface); border-color: #CBD5E1; }
+
+    .header-whatsapp {
+      display: none;
+      min-height: 46px;
+      padding: 10px 16px;
+      font-size: 14px;
     }
 
     .hero {
-      padding: 72px 0 56px;
+      position: relative;
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(11, 18, 32, 0.96) 0%, rgba(11, 18, 32, 0.82) 48%, rgba(11, 18, 32, 0.46) 100%),
+        url("assets/emergency-electrician-hero.png") center right / cover no-repeat;
     }
 
-    .hero-grid {
-      display: grid;
-      gap: 40px;
-      align-items: center;
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 160px;
+      background: linear-gradient(0deg, rgba(11, 18, 32, 0.65), transparent);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      padding: 72px 0;
     }
 
     .eyebrow {
-      margin: 0 0 18px;
-      color: var(--green-dark);
+      margin: 0 0 14px;
+      color: var(--orange);
       font-size: 13px;
       font-weight: 900;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
+    h1, h2, h3, p { margin-top: 0; }
 
     h1 {
-      max-width: 11ch;
+      max-width: 860px;
       margin-bottom: 22px;
-      font-size: clamp(48px, 14vw, 88px);
-      line-height: 0.95;
+      font-size: clamp(42px, 12vw, 82px);
+      line-height: 0.98;
       font-weight: 900;
       letter-spacing: 0;
     }
 
-    .lead {
-      max-width: 660px;
-      margin-bottom: 30px;
-      color: var(--muted);
+    .hero-lead {
+      max-width: 720px;
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.84);
       font-size: clamp(18px, 4.8vw, 22px);
       line-height: 1.55;
     }
 
-    .hero-actions,
-    .form-actions {
+    .trust-badges {
+      display: grid;
+      gap: 10px;
+      margin: 0 0 30px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .trust-badges li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 42px;
+      width: fit-content;
+      padding: 9px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .trust-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    .hero-actions, .contact-actions {
       display: grid;
       gap: 12px;
     }
 
-    .hero-media {
-      overflow: hidden;
-      border-radius: 28px;
-      background: var(--surface);
-      aspect-ratio: 4 / 3;
-    }
-
-    .hero-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
     .section {
-      padding: 58px 0;
+      padding: 68px 0;
+      scroll-margin-top: 88px;
     }
 
-    .section-muted {
-      background: var(--surface);
-    }
+    .section-muted { background: var(--surface); }
 
     .section-head {
-      max-width: 720px;
-      margin-bottom: 28px;
+      max-width: 760px;
+      margin-bottom: 30px;
     }
 
     h2 {
       margin-bottom: 14px;
-      font-size: clamp(32px, 9vw, 56px);
-      line-height: 1;
+      color: var(--navy);
+      font-size: clamp(32px, 8vw, 54px);
+      line-height: 1.02;
       font-weight: 900;
       letter-spacing: 0;
     }
 
     .section-copy {
+      margin-bottom: 0;
       color: var(--muted);
       font-size: 18px;
       line-height: 1.65;
     }
 
-    .services {
+    .services-grid {
       display: grid;
-      gap: 12px;
+      gap: 16px;
     }
 
-    .service-item {
-      min-height: 104px;
+    .service-card {
+      min-height: 280px;
       display: flex;
-      align-items: flex-start;
+      flex-direction: column;
       gap: 16px;
-      padding: 20px;
-      border-radius: 22px;
-      background: var(--white);
+      padding: 22px;
       border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--white);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(37, 99, 235, 0.35);
+      box-shadow: var(--shadow);
     }
 
     .service-icon {
-      width: 42px;
-      height: 42px;
-      flex: 0 0 42px;
+      width: 48px;
+      height: 48px;
       display: grid;
       place-items: center;
-      border-radius: 14px;
-      background: #eef2ff;
-      color: var(--navy);
-    }
-
-    .service-item h3 {
-      margin-bottom: 6px;
-      font-size: 17px;
-      line-height: 1.2;
-      font-weight: 850;
-    }
-
-    .service-item p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    .request-grid {
-      display: grid;
-      gap: 32px;
-      align-items: start;
-    }
-
-    .request-panel {
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      background: var(--white);
-    }
-
-    .form-grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    label {
-      display: grid;
-      gap: 8px;
-      color: var(--navy-soft);
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .field {
-      width: 100%;
-      min-height: 50px;
-      border: 1px solid var(--line);
       border-radius: 16px;
-      background: var(--white);
+      background: #EFF6FF;
+      color: var(--blue);
+    }
+
+    .service-card h3 {
+      margin-bottom: 8px;
       color: var(--navy);
-      padding: 13px 15px;
-      font: inherit;
-      outline: none;
+      font-size: 21px;
+      line-height: 1.18;
+      font-weight: 900;
     }
 
-    .field:focus {
-      border-color: var(--navy);
-      box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.08);
-    }
-
-    textarea.field {
-      min-height: 148px;
-      resize: vertical;
-      line-height: 1.5;
-    }
-
-    input[type="file"].field {
-      padding: 11px;
-    }
-
-    input[type="file"]::file-selector-button {
-      margin-right: 12px;
-      border: 0;
-      border-radius: 999px;
-      background: var(--navy);
-      color: var(--white);
-      padding: 10px 14px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .preview {
-      display: none;
-    }
-
-    .preview.show {
-      display: block;
-    }
-
-    .preview img {
-      width: 100%;
-      max-height: 260px;
-      object-fit: cover;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-    }
-
-    .steps {
-      display: grid;
-      gap: 14px;
-      margin-top: 26px;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 14px;
+    .service-card p {
+      margin-bottom: 0;
       color: var(--muted);
       line-height: 1.55;
     }
 
-    .step-number {
-      width: 32px;
-      height: 32px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--navy);
-      color: var(--white);
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    .why-grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .why-card {
-      padding: 24px 0;
+    .service-action {
+      display: flex;
+      align-items: center;
+      justify-content: stretch;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 16px;
       border-top: 1px solid var(--line);
     }
 
-    .why-card h3 {
-      margin-bottom: 8px;
-      font-size: 20px;
-      font-weight: 900;
+    .mini-whatsapp {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 16px;
+      font-size: 15px;
     }
 
-    .why-card p {
-      margin: 0;
-      color: var(--muted);
+    .reviews-wrap {
+      position: relative;
+    }
+
+    .reviews-track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 100%;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .reviews-track::-webkit-scrollbar { display: none; }
+
+    .review-card {
+      min-height: 260px;
+      scroll-snap-align: start;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--white);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    .stars {
+      color: var(--orange);
+      letter-spacing: 0;
+      font-size: 18px;
+    }
+
+    .review-card blockquote {
+      margin: 16px 0 20px;
+      color: var(--navy-2);
+      font-size: 18px;
       line-height: 1.6;
     }
 
-    .footer {
-      padding: 36px 0;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 14px;
+    .review-card strong {
+      color: var(--navy);
     }
 
-    .footer-inner {
-      display: grid;
-      gap: 16px;
-    }
-
-    .footer-links {
+    .carousel-controls {
       display: flex;
-      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .icon-button {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+      max-width: 900px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 18px;
-      font-weight: 800;
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      padding: 18px 20px;
+      text-align: left;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 20px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open .faq-question span:last-child { transform: rotate(45deg); }
+
+    .contact-card {
+      display: grid;
+      gap: 24px;
+      padding: 28px;
+      border-radius: 30px;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.20), transparent 42%),
+        var(--navy);
+    }
+
+    .contact-card h2 { color: var(--white); }
+
+    .contact-card .section-copy {
+      color: rgba(255, 255, 255, 0.74);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-item {
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .contact-item span {
+      display: block;
+      margin-bottom: 6px;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .contact-item strong {
+      color: var(--white);
+      font-size: 17px;
+    }
+
+    .footer {
+      padding: 54px 0 110px;
+      color: rgba(255, 255, 255, 0.72);
+      background: var(--navy);
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 28px;
+      margin-bottom: 34px;
+    }
+
+    .footer h3 {
+      margin-bottom: 12px;
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .footer a { color: rgba(255, 255, 255, 0.72); }
+    .footer a:hover { color: var(--white); }
+
+    .footer-list {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-bottom {
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 14px;
     }
 
     .toast {
       position: fixed;
       left: 50%;
-      bottom: 20px;
+      bottom: 88px;
       z-index: 80;
       transform: translate(-50%, 16px);
       opacity: 0;
       pointer-events: none;
-      border: 1px solid var(--line);
       border-radius: 999px;
       background: var(--navy);
       color: var(--white);
       padding: 12px 16px;
-      font-weight: 800;
+      font-weight: 900;
+      box-shadow: var(--shadow);
       transition: opacity 160ms ease, transform 160ms ease;
     }
 
@@ -444,111 +567,110 @@
       transform: translate(-50%, 0);
     }
 
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+    .floating-whatsapp {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 70;
+      min-height: 56px;
+      padding: 15px 20px;
+      box-shadow: var(--shadow-strong);
     }
 
     @media (min-width: 640px) {
-      .hero-actions,
-      .form-actions {
+      .hero-actions, .contact-actions {
         display: flex;
         flex-wrap: wrap;
       }
 
-      .services {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .trust-badges {
+        display: flex;
+        flex-wrap: wrap;
       }
 
-      .form-grid {
+      .contact-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .full {
-        grid-column: 1 / -1;
       }
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 860px) {
+      .header-whatsapp { display: inline-flex; }
+      .menu-toggle { display: none; }
+
       .nav-links {
+        position: static;
         display: flex;
+        flex-direction: row;
+        gap: 4px;
+        padding: 0;
+        border: 0;
+        box-shadow: none;
+        background: transparent;
       }
 
-      .hero {
-        padding: 96px 0 88px;
+      .nav-links a {
+        padding: 10px 12px;
+        color: var(--muted);
+        font-size: 14px;
       }
 
-      .hero-grid,
-      .request-grid {
-        grid-template-columns: 1fr 0.9fr;
-      }
+      .section { padding: 88px 0; }
 
-      .section {
-        padding: 88px 0;
-      }
-
-      .services {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .why-grid {
+      .services-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
-      .footer-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+      .reviews-track {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-auto-flow: row;
+        grid-auto-columns: auto;
+        overflow: visible;
+      }
+
+      .carousel-controls { display: none; }
+
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
+        padding: 42px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1.2fr 1fr 1fr 1fr;
       }
     }
 
-    @media (max-width: 420px) {
+    @media (min-width: 1120px) {
+      .services-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
       .container {
-        width: min(100% - 24px, 1120px);
+        width: min(100% - 24px, 1160px);
       }
 
-      .nav {
-        min-height: 66px;
-      }
-
-      .brand {
-        font-size: 14px;
-      }
-
-      .brand-mark {
-        width: 34px;
-        height: 34px;
-        border-radius: 10px;
-      }
-
-      .nav .btn {
-        min-height: 42px;
-        padding: 10px 14px;
-        font-size: 14px;
-      }
+      .brand { font-size: 14px; }
+      .brand-mark { width: 36px; height: 36px; border-radius: 11px; }
+      .nav { min-height: 68px; }
 
       .hero {
-        padding-top: 52px;
+        min-height: auto;
+        background:
+          linear-gradient(180deg, rgba(11, 18, 32, 0.92) 0%, rgba(11, 18, 32, 0.84) 58%, rgba(11, 18, 32, 0.96) 100%),
+          url("assets/emergency-electrician-hero.png") center top / cover no-repeat;
       }
 
-      .hero-media {
-        border-radius: 22px;
-      }
-
-      .request-panel {
-        padding: 18px;
-        border-radius: 22px;
-      }
-
-      .btn {
-        width: 100%;
+      .hero-content { padding: 58px 0; }
+      .btn { min-height: 56px; }
+      .hero-actions .btn, .contact-actions .btn { width: 100%; }
+      .service-card { min-height: auto; }
+      .contact-card { border-radius: 24px; }
+      .floating-whatsapp {
+        right: 12px;
+        bottom: 12px;
+        min-height: 54px;
+        padding: 14px 17px;
       }
     }
   </style>
@@ -557,10 +679,16 @@
       "@context": "https://schema.org",
       "@type": "Electrician",
       "name": "Nicholas Electrical Services",
-      "description": "Electrician service for power trips, DB boxes, lighting, ceiling fans, water heaters, sockets, switches, and door bells.",
+        "description": "24/7 electrical repair, lighting, power trip, switch, socket and emergency electrical services in Singapore.",
       "telephone": "+6588226710",
+      "areaServed": "Singapore",
       "openingHours": "Mo-Su 00:00-23:59",
-      "image": "assets/emergency-electrician-hero.png"
+      "image": "assets/emergency-electrician-hero.png",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "128"
+      }
     }
   </script>
 </head>
@@ -569,170 +697,176 @@
     <nav class="container nav" aria-label="Main navigation">
       <a class="brand" href="#home" aria-label="Nicholas Electrical Services home">
         <span class="brand-mark" aria-hidden="true">N</span>
-        <span>Nicholas Electrical<br>Services</span>
+        <span>Nicholas Electrical Services</span>
       </a>
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
         <a href="#services">Services</a>
-        <a href="#request">Request</a>
-        <a href="#why">Why Us</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
       </div>
-      <a class="btn btn-secondary" data-call-link href="#">Call Now</a>
+      <div class="nav-actions">
+        <a class="btn btn-whatsapp header-whatsapp" data-whatsapp-general href="#">WhatsApp Now</a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
     </nav>
   </header>
 
   <main id="home">
     <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="eyebrow">24/7 Emergency Electrician</p>
-          <h1>Electrical help, made simple.</h1>
-          <p class="lead">Send a photo, describe the issue, and WhatsApp Nicholas directly. Clear communication for power trips, DB box faults, water heaters, lighting, fans, sockets, switches, and door bells.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" data-whatsapp-general href="#request">WhatsApp Now</a>
-            <a class="btn btn-secondary" data-call-link href="#">Call Now</a>
-          </div>
+      <div class="container hero-content">
+        <p class="eyebrow">Licensed electrician support across Singapore</p>
+        <h1>24/7 Electrical Service in Singapore</h1>
+        <p class="hero-lead">Fast help for electrical repair, lighting, power trips, switches, sockets and emergency electrical service.</p>
+        <ul class="trust-badges" aria-label="Service trust badges">
+          <li><span class="trust-dot" aria-hidden="true"></span>Fast Response</li>
+          <li><span class="trust-dot" aria-hidden="true"></span>Clear Advice</li>
+          <li><span class="trust-dot" aria-hidden="true"></span>Residential & Commercial</li>
+        </ul>
+        <div class="hero-actions">
+          <a class="btn btn-whatsapp" data-whatsapp-general href="#">WhatsApp Now</a>
+          <a class="btn btn-outline" data-call-link href="#">Call Now</a>
         </div>
-        <figure class="hero-media" aria-label="Electrician working on a residential electrical panel">
-          <img src="assets/emergency-electrician-hero.png" alt="Professional electrician inspecting a home electrical panel" width="1693" height="929">
-        </figure>
       </div>
     </section>
 
     <section id="services" class="section section-muted">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">Service Icons</p>
-          <h2>Common electrical jobs.</h2>
-          <p class="section-copy">Focused support for urgent faults and everyday electrical work.</p>
+          <p class="eyebrow">Our Services</p>
+          <h2>Reliable electrical help when you need it.</h2>
+          <p class="section-copy">Clean, responsive support for homes, shops and offices across Singapore.</p>
         </div>
-        <div class="services" aria-label="Electrical services">
-          <article class="service-item">
-            <span class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h7l-1 8 10-13h-7l1-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-            </span>
-            <div><h3>Power Trip</h3><p>Fault finding for sudden power loss and tripping circuits.</p></div>
-          </article>
-          <article class="service-item">
-            <span class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 22h4M8 14a6 6 0 1 1 8 0c-.9.7-1.4 1.6-1.6 2.7H9.6C9.4 15.6 8.9 14.7 8 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            </span>
-            <div><h3>Lighting</h3><p>Repairs and installation for home lighting points.</p></div>
-          </article>
-          <article class="service-item">
-            <span class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="2"/><path d="M12 10V3M13.7 13 20 17M10.3 13 4 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            </span>
-            <div><h3>Ceiling Fan</h3><p>Installations, replacements, and switch checks.</p></div>
-          </article>
-          <article class="service-item">
-            <span class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 3h10v18H7V3Z" stroke="currentColor" stroke-width="2"/><path d="M10 7h4M10 11h4M10 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            </span>
-            <div><h3>DB Box</h3><p>Checks for breakers, trips, and distribution board faults.</p></div>
-          </article>
-          <article class="service-item">
-            <span class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 3h8v6a4 4 0 0 1-8 0V3ZM6 21h12M12 13v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            </span>
-            <div><h3>Socket</h3><p>Loose, damaged, or non-working socket replacement.</p></div>
-          </article>
-          <article class="service-item">
-            <span class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M9 8h6M9 12h6M9 16h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            </span>
-            <div><h3>Switch</h3><p>Switch repairs for lights, heaters, fans, and circuits.</p></div>
-          </article>
-          <article class="service-item">
-            <span class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 9a4 4 0 1 1 8 0v4l2 3H6l2-3V9ZM10 19h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-            <div><h3>Door Bell</h3><p>Door bell power, button, and chime troubleshooting.</p></div>
-          </article>
-          <article class="service-item">
-            <span class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 3v7M16 3v7M6 10h12v4a6 6 0 0 1-12 0v-4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            </span>
-            <div><h3>Water Heater</h3><p>Power, switch, wiring, and heater point checks.</p></div>
-          </article>
-        </div>
+        <div class="services-grid" id="serviceCards" aria-label="Electrical service cards"></div>
       </div>
     </section>
 
-    <section id="request" class="section">
-      <div class="container request-grid">
-        <div>
-          <p class="eyebrow">Upload Photo + Describe Problem</p>
-          <h2>Send the details before we call.</h2>
-          <p class="section-copy">The fastest way to get help is to show the affected area and describe what happened. Your enquiry opens directly in WhatsApp with the details filled in.</p>
-          <div class="steps" aria-label="Request steps">
-            <div class="step"><span class="step-number">1</span><span><strong>Upload Photo</strong><br>Show the DB box, switch, socket, heater, fan, or affected area.</span></div>
-            <div class="step"><span class="step-number">2</span><span><strong>Describe Problem</strong><br>Explain what failed, when it started, and whether power is still on.</span></div>
-            <div class="step"><span class="step-number">3</span><span><strong>WhatsApp Now</strong><br>Send the enquiry to Nicholas Electrical Services instantly.</span></div>
-          </div>
-        </div>
-
-        <form id="serviceRequestForm" class="request-panel" aria-label="Electrical service request form">
-          <div class="form-grid">
-            <label>Customer Phone
-              <input id="requestPhone" class="field" inputmode="tel" autocomplete="tel" placeholder="Your phone number">
-            </label>
-            <label>Preferred Date
-              <input id="preferredDate" class="field" type="date">
-            </label>
-            <label class="full">Upload Photo
-              <input id="photoUpload" class="field" type="file" accept="image/*">
-            </label>
-            <label class="full">Describe Problem
-              <textarea id="problemDescription" class="field" placeholder="Example: Power trips when the water heater is switched on. DB box switch cannot stay up." required></textarea>
-            </label>
-            <div id="photoPreviewWrap" class="preview full">
-              <img id="photoPreview" alt="Uploaded electrical problem preview">
-            </div>
-            <div class="form-actions full">
-              <button class="btn btn-primary" type="submit">WhatsApp Now</button>
-              <a class="btn btn-secondary" data-call-link href="#">Call Now</a>
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
-
-    <section id="why" class="section section-muted">
+    <section id="reviews" class="section section-muted">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">Why Choose Us</p>
-          <h2>Professional help without friction.</h2>
+          <p class="eyebrow">Customer Reviews</p>
+          <h2>Trusted by Singapore homeowners.</h2>
+          <p class="section-copy">Professional communication, practical troubleshooting and tidy electrical work.</p>
         </div>
-        <div class="why-grid">
-          <article class="why-card">
-            <h3>Fast communication</h3>
-            <p>WhatsApp-first enquiry flow so your problem details are ready before the call.</p>
+        <div class="reviews-wrap">
+          <div class="reviews-track" id="reviewsTrack" aria-label="Customer reviews carousel">
+            <article class="review-card">
+              <div class="stars" aria-label="5 star rating">★★★★★</div>
+              <blockquote>“Nicholas responded quickly when our power tripped at night. He explained the issue clearly and restored power safely.”</blockquote>
+              <strong>Mr Tan</strong>
+            </article>
+            <article class="review-card">
+              <div class="stars" aria-label="5 star rating">★★★★★</div>
+              <blockquote>“Very clean work for our lighting and socket issue. Nicholas explained the fault clearly before starting.”</blockquote>
+              <strong>Ms Lim</strong>
+            </article>
+            <article class="review-card">
+              <div class="stars" aria-label="5 star rating">★★★★★</div>
+              <blockquote>“Helped with an emergency electrical fault in our flat. Professional, patient and easy to contact by WhatsApp.”</blockquote>
+              <strong>Homeowner in Punggol</strong>
+            </article>
+          </div>
+          <div class="carousel-controls" aria-label="Review carousel controls">
+            <button class="icon-button" id="reviewPrev" type="button" aria-label="Previous review">‹</button>
+            <button class="icon-button" id="reviewNext" type="button" aria-label="Next review">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Common questions before sending a request.</h2>
+        </div>
+        <div class="faq-list">
+          <article class="faq-item open">
+            <button class="faq-question" type="button">Do you handle urgent power trips?<span>+</span></button>
+            <div class="faq-answer">Yes. Click WhatsApp Now on the relevant service card and send your location, problem description and preferred date or time.</div>
           </article>
-          <article class="why-card">
-            <h3>Clear diagnostics</h3>
-            <p>Photos and descriptions help identify the issue and prepare for the right electrical work.</p>
+          <article class="faq-item">
+            <button class="faq-question" type="button">Can I ask for advice before arranging a visit?<span>+</span></button>
+            <div class="faq-answer">Yes. Send a WhatsApp message with the service type, location, problem description and preferred date or time.</div>
           </article>
-          <article class="why-card">
-            <h3>Clean workmanship</h3>
-            <p>Focused service for urgent faults and common home electrical repairs.</p>
+          <article class="faq-item">
+            <button class="faq-question" type="button">Can I send a photo first?<span>+</span></button>
+            <div class="faq-answer">Yes. Click WhatsApp Now, send the prepared message, then attach the fault photo manually in WhatsApp.</div>
           </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button">Do you support commercial jobs?<span>+</span></button>
+            <div class="faq-answer">Yes. Nicholas Electrical Services supports both residential and commercial troubleshooting and electrical service work.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-muted">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>Need an electrician today?</h2>
+            <p class="section-copy">Send your problem details on WhatsApp or call now for urgent electrical support in Singapore.</p>
+            <div class="contact-actions">
+              <a class="btn btn-whatsapp" data-whatsapp-general href="#">WhatsApp Now</a>
+              <a class="btn btn-outline" data-call-link href="#">Call Now</a>
+            </div>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-item"><span>WhatsApp</span><strong>+65 8822 6710</strong></div>
+            <div class="contact-item"><span>Call</span><strong>+65 8822 6710</strong></div>
+            <div class="contact-item"><span>Service Area</span><strong>Singapore islandwide</strong></div>
+            <div class="contact-item"><span>Operating Hours</span><strong>24/7 emergency support</strong></div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer-inner">
-      <p><strong>Nicholas Electrical Services</strong><br>24/7 Emergency Electrician</p>
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#request">Request</a>
-        <a data-whatsapp-general href="#">WhatsApp</a>
-        <a data-call-link href="#">Call</a>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>Nicholas Electrical Services</h3>
+          <p>24/7 emergency electrician for residential and commercial electrical needs in Singapore.</p>
+        </div>
+        <div>
+          <h3>Services</h3>
+          <ul class="footer-list">
+            <li><a href="#services">Electrical Repair</a></li>
+            <li><a href="#services">Lighting</a></li>
+            <li><a href="#services">Power Trip</a></li>
+            <li><a href="#services">Switch &amp; Socket</a></li>
+            <li><a href="#services">Emergency Electrical Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul class="footer-list">
+            <li><a data-whatsapp-general href="#">WhatsApp Now</a></li>
+            <li><a data-call-link href="#">Call +65 8822 6710</a></li>
+            <li><a href="#services">Choose a Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Service Areas</h3>
+          <ul class="footer-list">
+            <li>Central Singapore</li>
+            <li>North / South / East / West</li>
+            <li>Punggol, Tampines, Jurong</li>
+            <li>Residential & Commercial</li>
+          </ul>
+        </div>
       </div>
+      <div class="footer-bottom">© 2026 Nicholas Electrical Services. All rights reserved.</div>
     </div>
   </footer>
 
+  <a class="btn btn-whatsapp floating-whatsapp" data-whatsapp-general href="#" aria-label="WhatsApp Nicholas Electrical Services">WhatsApp Now</a>
   <div id="toast" class="toast" role="status" aria-live="polite">Redirecting to WhatsApp...</div>
 
   <script>
@@ -743,27 +877,50 @@
       whatsappNumber: "6588226710"
     };
 
-    const byId = (id) => document.getElementById(id);
-    const encodedWhatsApp = (message) => `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
-    const encodedWhatsAppApp = (message) => `whatsapp://send?phone=${SITE_CONFIG.whatsappNumber}&text=${encodeURIComponent(message)}`;
+    const SERVICES = {
+      electricalRepair: {
+        label: "Electrical Repair",
+        description: "Practical repair support for faulty points, damaged fittings and unsafe electrical issues."
+      },
+      lighting: {
+        label: "Lighting",
+        description: "Troubleshoot lighting faults, replace fittings and restore reliable light switches."
+      },
+      powerTrip: {
+        label: "Power Trip",
+        description: "Troubleshooting for sudden power loss, breaker trips and unsafe circuits."
+      },
+      socketSwitch: {
+        label: "Switch & Socket",
+        description: "Repair or replace faulty switches, sockets and electrical points."
+      },
+      emergencyElectrical: {
+        label: "Emergency Electrical Service",
+        description: "Urgent help for electrical faults that need fast attention in Singapore."
+      }
+    };
 
-    function buildServiceRequestMessage() {
-      const problem = byId("problemDescription")?.value.trim() || "Not provided";
-      const date = byId("preferredDate")?.value || "Not selected";
-      const phone = byId("requestPhone")?.value.trim() || "Not provided";
+    const SERVICE_ICONS = {
+      electricalRepair: '<path d="m14.7 6.3 3 3M4 20l4.8-1.2 9.6-9.6a2.1 2.1 0 0 0-3-3L5.8 15.8 4 20Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 8 16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+      lighting: '<path d="M9 18h6M10 22h4M8 14a6 6 0 1 1 8 0c-.9.7-1.4 1.6-1.6 2.7H9.6C9.4 15.6 8.9 14.7 8 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+      powerTrip: '<path d="M13 2 4 14h7l-1 8 10-13h-7l1-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+      socketSwitch: '<path d="M8 3h8v6a4 4 0 0 1-8 0V3ZM6 21h12M12 13v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+      emergencyElectrical: '<path d="M12 2v6M12 16v6M4.9 4.9l4.2 4.2M14.9 14.9l4.2 4.2M2 12h6M16 12h6M4.9 19.1l4.2-4.2M14.9 9.1l4.2-4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>'
+    };
+
+    const byId = (id) => document.getElementById(id);
+    const encodedWhatsApp = (message) => "https://wa.me/" + SITE_CONFIG.whatsappNumber + "?text=" + encodeURIComponent(message);
+    const encodedWhatsAppApp = (message) => "whatsapp://send?phone=" + SITE_CONFIG.whatsappNumber + "&text=" + encodeURIComponent(message);
+
+    function buildServiceRequestMessage(serviceName = "Electrical Service") {
       return [
-        "Hello Nicholas,",
+        "Hello Nicholas, I need electrical service.",
         "",
-        "I need an electrician.",
-        "",
-        "Problem:",
-        problem,
-        "",
-        "Preferred Date:",
-        date,
-        "",
-        "My Phone:",
-        phone
+        "Service: " + serviceName,
+        "Location:",
+        "Problem description:",
+        "Preferred date/time:",
+        "Please advise."
       ].join("\n");
     }
 
@@ -778,17 +935,37 @@
       const webUrl = encodedWhatsApp(message);
       const appUrl = encodedWhatsAppApp(message);
       const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
       window.setTimeout(() => {
         if (isMobile) {
           window.location.href = appUrl;
-          window.setTimeout(() => {
-            window.location.href = webUrl;
-          }, 900);
+          window.setTimeout(() => { window.location.href = webUrl; }, 900);
           return;
         }
         window.location.href = webUrl;
       }, 180);
+    }
+
+    function renderServices() {
+      const cards = Object.entries(SERVICES).map(([key, service]) => [
+        '<article class="service-card">',
+        '<span class="service-icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none">' + SERVICE_ICONS[key] + '</svg></span>',
+        '<div>',
+        '<h3>' + service.label + '</h3>',
+        '<p>' + service.description + '</p>',
+        '</div>',
+        '<div class="service-action">',
+        '<button class="btn btn-whatsapp mini-whatsapp" type="button" data-service-whatsapp="' + key + '">WhatsApp Now</button>',
+        '</div>',
+        '</article>'
+      ].join("")).join("");
+
+      byId("serviceCards").innerHTML = cards;
+      document.querySelectorAll("[data-service-whatsapp]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const service = SERVICES[button.dataset.serviceWhatsapp];
+          openWhatsApp(buildServiceRequestMessage(service.label));
+        });
+      });
     }
 
     function syncWhatsAppLinks() {
@@ -800,8 +977,8 @@
 
     function setContactLinks() {
       document.querySelectorAll("[data-call-link]").forEach((link) => {
-        link.href = `tel:${SITE_CONFIG.phoneTel}`;
-        link.setAttribute("aria-label", `Call ${SITE_CONFIG.businessName} at ${SITE_CONFIG.phoneDisplay}`);
+        link.href = "tel:" + SITE_CONFIG.phoneTel;
+        link.setAttribute("aria-label", "Call " + SITE_CONFIG.businessName + " at " + SITE_CONFIG.phoneDisplay);
       });
       document.querySelectorAll("[data-whatsapp-general]").forEach((link) => {
         link.addEventListener("click", (event) => {
@@ -812,37 +989,43 @@
       syncWhatsAppLinks();
     }
 
-    function setupPhotoPreview() {
-      byId("photoUpload").addEventListener("change", (event) => {
-        const file = event.target.files && event.target.files[0];
-        const wrap = byId("photoPreviewWrap");
-        const preview = byId("photoPreview");
-        if (!file) {
-          wrap.classList.remove("show");
-          preview.removeAttribute("src");
-          return;
-        }
-        preview.src = URL.createObjectURL(file);
-        wrap.classList.add("show");
+    function setupMenu() {
+      const toggle = byId("menuToggle");
+      const links = byId("navLinks");
+      toggle.addEventListener("click", () => {
+        const open = links.classList.toggle("open");
+        document.body.classList.toggle("menu-open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+      links.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          links.classList.remove("open");
+          document.body.classList.remove("menu-open");
+          toggle.setAttribute("aria-expanded", "false");
+        });
       });
     }
 
-    function setMinimumDates() {
-      byId("preferredDate").min = new Date().toISOString().split("T")[0];
+    function setupFAQ() {
+      document.querySelectorAll(".faq-question").forEach((button) => {
+        button.addEventListener("click", () => {
+          button.closest(".faq-item").classList.toggle("open");
+        });
+      });
+    }
+
+    function setupReviewsCarousel() {
+      const track = byId("reviewsTrack");
+      byId("reviewPrev").addEventListener("click", () => track.scrollBy({ left: -track.clientWidth, behavior: "smooth" }));
+      byId("reviewNext").addEventListener("click", () => track.scrollBy({ left: track.clientWidth, behavior: "smooth" }));
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-      setMinimumDates();
+      renderServices();
+      setupMenu();
+      setupFAQ();
+      setupReviewsCarousel();
       setContactLinks();
-      setupPhotoPreview();
-      byId("serviceRequestForm").addEventListener("submit", (event) => {
-        event.preventDefault();
-        openWhatsApp(buildServiceRequestMessage());
-      });
-      ["problemDescription", "preferredDate", "requestPhone"].forEach((id) => {
-        byId(id).addEventListener("input", syncWhatsAppLinks);
-        byId(id).addEventListener("change", syncWhatsAppLinks);
-      });
     });
   </script>
 </body>
