@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Nicholas Electrical Services logo</title>
+  <desc id="desc">Circular Nicholas Electrical Services logo with a lightning bolt mark.</desc>
+  <defs>
+    <linearGradient id="bg" x1="104" y1="64" x2="408" y2="448" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.58" stop-color="#1d4ed8"/>
+      <stop offset="1" stop-color="#f97316"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#0f172a" flood-opacity=".24"/>
+    </filter>
+  </defs>
+  <circle cx="256" cy="256" r="232" fill="url(#bg)" filter="url(#shadow)"/>
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#ffffff" stroke-opacity=".92" stroke-width="12"/>
+  <path d="M280 84 142 284h92l-30 144 164-228h-96l8-116Z" fill="#ffffff"/>
+  <path d="M286 92 198 260h82l-18 90 106-150h-96l14-108Z" fill="#facc15" opacity=".92"/>
+  <text x="256" y="438" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="900" text-anchor="middle" letter-spacing="2">NES</text>
+</svg>
